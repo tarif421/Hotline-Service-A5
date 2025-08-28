@@ -8,6 +8,7 @@ const copyBtns = document.getElementsByClassName("copy-btn");
 const cardHearts = document.getElementsByClassName("card-heart");
 const starNum = getElement("star-num");
 const navHeart = getElement("nav-heart");
+const clearBtn = getElement("clear-btn");
 
 for (let callBtn of callBtns) {
   callBtn.addEventListener("click", function () {
@@ -60,3 +61,7 @@ for (const cardHeart of cardHearts) {
 //   const card = copyBtn.parentNode.parentNode;
 //   const hotlineNum = card.querySelector("h1").innerText;
 // }
+
+clearBtn.addEventListener("click", function () {
+  document.getElementById("history-container").innerHTML = " ";
+});
