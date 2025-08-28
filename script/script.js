@@ -57,10 +57,19 @@ for (const cardHeart of cardHearts) {
     navHeart.innerText = newNavHeart;
   });
 }
-// for (let copyBtn of copyBtns) {
-//   const card = copyBtn.parentNode.parentNode;
-//   const hotlineNum = card.querySelector("h1").innerText;
-// }
+for (let copyBtn of copyBtns) {
+  copyBtn.addEventListener("click", function () {
+    const card = copyBtn.parentNode.parentNode;
+    const hotlineNum = card.querySelector("h1").innerText;
+    let copyCount = document.getElementById("copy-count").innerText;
+    navigator.clipboard.writeText(hotlineNum).then(function () {
+      alert("number copied " + hotlineNum);
+      let newCopyCount = parseInt(copyCount) + 1;
+      document.getElementById("copy-count").innerText = newCopyCount;
+      return;
+    });
+  });
+}
 
 clearBtn.addEventListener("click", function () {
   document.getElementById("history-container").innerHTML = " ";
