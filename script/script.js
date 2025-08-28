@@ -5,15 +5,15 @@ function getElement(id) {
 
 const callBtns = document.getElementsByClassName("call-btn");
 const copyBtns = document.getElementsByClassName("copy-btn");
-const startNum = document.getElement("star-num");
+const cardHearts = document.getElementsByClassName("card-heart");
+const starNum = getElement("star-num");
+const navHeart = getElement("nav-heart");
 
 for (let callBtn of callBtns) {
   callBtn.addEventListener("click", function () {
     const card = callBtn.parentNode.parentNode;
     const hotlineText = card.querySelector("p").innerText;
     const hotlineNum = card.querySelector("h1").innerText;
-
-    alert("Calling " + hotlineText + " " + hotlineNum);
 
     // add history
     const historyContainer = getElement("history-container");
@@ -31,6 +31,32 @@ for (let callBtn of callBtns) {
                         <p class="text-lg">${time}</p>
                     </div>
     `;
+
+    let star = parseInt(starNum.innerText);
+
+    if (star < 20) {
+      alert(
+        "You don't have sufficient coin. You need at least 20 coins to call."
+      );
+      return;
+    }
+
+    let newStar = star - 20;
+    starNum.innerText = newStar;
+
+    alert("Calling " + hotlineText + " " + hotlineNum);
     historyContainer.appendChild(div);
   });
 }
+
+for (const cardHeart of cardHearts) {
+  cardHeart.addEventListener("click", function () {
+    let navHeartNum = parseInt(navHeart.innerText);
+    let newNavHeart = navHeartNum + 1;
+    navHeart.innerText = newNavHeart;
+  });
+}
+// for (let copyBtn of copyBtns) {
+//   const card = copyBtn.parentNode.parentNode;
+//   const hotlineNum = card.querySelector("h1").innerText;
+// }
