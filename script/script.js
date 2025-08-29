@@ -22,7 +22,7 @@ for (let callBtn of callBtns) {
     const time = now.toLocaleTimeString();
 
     const div = document.createElement("div");
-    div.className = "flex justify-between items-center p-5";
+    div.className = "flex justify-between items-center p-5 mb-3";
     div.innerHTML = `
                     <div>
                         <h2 class="text-xl font-bold">${hotlineText}</h2>
